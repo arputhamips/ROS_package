@@ -4,3 +4,6 @@
 [submodule "camera_ros"]
 	path = camera_ros
 	url = https://github.com/christianrauch/camera_ros.git
+[submodule "libpisp"]
+	path = libpisp
+	url = https://github.com/raspberrypi/libpisp.git
