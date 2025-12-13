@@ -1,0 +1,47 @@
+### config/ekf.yaml ###
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    two_d_mode: true
+    publish_tf: true
+
+    map_frame: map              
+    odom_frame: odom            
+    base_link_frame: base_link  
+    world_frame: odom           
+
+    # -------------------------------------
+    # SOURCE 1: WHEEL ODOMETRY (from Teensy)
+    # -------------------------------------
+    odom0: /odom/unfiltered
+    
+    # We use linear velocity (vx) and angular velocity (vyaw).
+    # We IGNORE position (X/Y) because wheels slip. We let the filter calculate position by integrating velocity.
+    # Config format: [x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az]
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  false, false,
+                   false, false, true,
+                   false, false, false]
+    
+    odom0_differential: false
+    odom0_queue_size: 10
+
+    # -------------------------------------
+    # SOURCE 2: IMU (from Teensy)
+    # -------------------------------------
+    imu0: /imu/data
+    
+    # We use Absolute Yaw (direction) and Angular Velocity (vyaw).
+    # This keeps the robot driving straight.
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  false, false, false,
+                  false, false, true,
+                  true,  false, false]
+                  
+    imu0_differential: false
+    imu0_queue_size: 10
+    
+    # The EKF will use the TF tree to figure out the IMU is rotated/offset.
+    # Since your Xacro is correct, this will work automatically!

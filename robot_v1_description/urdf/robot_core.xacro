@@ -19,6 +19,12 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+
+
     <!-- BASE LINK -->
 
     <link name="base_link">
@@ -111,7 +117,7 @@
     <joint name="caster_wheel_joint_front" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel_front"/>
-        <origin xyz="0.38 0 0"/>
+        <origin xyz="0.34 0 0"/>
     </joint>
 
 
@@ -159,6 +165,6 @@
     </link>
 
     <!-- SENSORS -->
-    
+    <xacro:include filename="sensors.xacro" />
     
 </robot>
