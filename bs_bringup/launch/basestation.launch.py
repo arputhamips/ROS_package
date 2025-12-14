@@ -4,6 +4,16 @@ from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 
 def generate_launch_description():
+    bringup_pkg = 'bs_bringup'
+    
+    # Path to your Rviz config file
+    # (Assuming you saved your Rviz setup to 'rover_view.rviz' inside the config folder)
+    # If you haven't saved one yet, Rviz will just open with default settings.
+    rviz_config_path = os.path.join(
+        get_package_share_directory(bringup_pkg), 
+        'config', 
+        'rover_view.rviz'
+    )
     
     # 1. Start RViz2
     # We don't load a config yet because you haven't saved one. 
@@ -12,8 +22,8 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        output='screen',
-        arguments=['-d', os.path.join(get_package_share_directory('bs_bringup'), 'config', 'view.rviz')]
+        arguments=['-d', rviz_config_path],
+        output='screen'
     )
 
     # 2. Start RQT Image View
