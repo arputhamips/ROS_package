@@ -55,6 +55,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         rviz_node,
-        teleop_terminal,
+        # teleop_terminal,
         recorder_node
     ])

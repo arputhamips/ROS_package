@@ -32,6 +32,10 @@ class SquareController(Node):
         # Service to Start Mission
         self.srv = self.create_service(Trigger, 'start_square', self.start_callback)
         
+        # Print "Standing By" Message
+        self.get_logger().info("Square Controller Initialized.")
+        self.get_logger().info("WAITING FOR SERVICE REQUEST: /start_square")
+
         # Control Loop (10Hz)
         self.timer = self.create_timer(0.1, self.control_loop)
 
