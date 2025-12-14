@@ -13,7 +13,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
-        # arguments=['-d', os.path.join(get_package_share_directory('bs_bringup'), 'config', 'view.rviz')]
+        arguments=['-d', os.path.join(get_package_share_directory('bs_bringup'), 'config', 'view.rviz')]
     )
 
     # 2. Start RQT Image View

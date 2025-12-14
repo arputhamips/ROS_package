@@ -95,6 +95,7 @@ def generate_launch_description():
         rsp_launch,
         micro_ros_agent,
         ekf_node,
-        camera_node,
-        mission_controller_node
+        mission_controller_node,
+        camera_node
+        
     ])
