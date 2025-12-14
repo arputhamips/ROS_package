@@ -79,6 +79,15 @@ def generate_launch_description():
         }]
     )
 
+    # E. [NEW] Mission Controller
+    # Starts automatically and waits for service call
+    mission_controller_node = Node(
+        package='robot_controller',
+        executable='square_path',
+        name='square_controller',
+        output='screen'
+    )
+
     # ========================================================================
     # 3. LAUNCH EVERYTHING
     # ========================================================================
@@ -86,5 +95,6 @@ def generate_launch_description():
         rsp_launch,
         micro_ros_agent,
         ekf_node,
-        camera_node
+        camera_node,
+        mission_controller_node
     ])

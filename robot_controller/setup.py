@@ -14,7 +14,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='nirmal',
-    maintainer_email='159134000+arputhamips@users.noreply.github.com',
+    maintainer_email='nirmalezhil21',
     description='TODO: Package description',
     license='TODO: License declaration',
     extras_require={

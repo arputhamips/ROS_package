@@ -33,8 +33,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    # 4. [NEW] Mission Recorder
+    # Automatically listens for "RUNNING" status to start recording
+    recorder_node = Node(
+        package='bs_controller',
+        executable='mission_recorder',
+        name='mission_recorder',
+        output='screen'
+    )
+
     return LaunchDescription([
         rviz_node,
-        rqt_image_view,
-        teleop_terminal
+        teleop_terminal,
+        recorder_node
     ])
