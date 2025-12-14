@@ -30,7 +30,7 @@ ekf_filter_node:
     # -------------------------------------
     # SOURCE 2: IMU (from Teensy)
     # -------------------------------------
-    imu0: /imu/data
+    # imu0: /imu/data
     
     # We use Absolute Yaw (direction) and Angular Velocity (vyaw).
     # This keeps the robot driving straight.
