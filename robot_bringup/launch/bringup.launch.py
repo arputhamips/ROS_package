@@ -26,6 +26,13 @@ def generate_launch_description():
         'ekf.yaml'
     )
 
+    # path to camera config file
+    calibration_file_path = 'file://' + os.path.join(
+        get_package_share_directory(bringup_pkg), 
+        'config', 
+        'pi_cam_v2.yaml'
+    )
+
     # ========================================================================
     # 2. DEFINE NODES & INCLUDES
     # ========================================================================
@@ -68,6 +75,7 @@ def generate_launch_description():
             'height': 480,
             'frame_id': 'camera_link_optical', 
             'format': 'UYVY',
+            'camera_info_url': calibration_file_path
         }]
     )
 
